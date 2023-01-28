@@ -96,3 +96,64 @@ cacls nazwa_folderu /t /e /g nazwa_usera:f – Nadaje pełne prawa do folderu dl
 cacls nazwa_folderu /t /e /g nazwa_usera:r – Nadaje prawa odczytu do folderu dla podanego uzytkownika. 
 
 cacls nazwa_folderu /t /e /g nazwa_usera:w – Nadaje prawa zapisu do folderu dla podanego użytkownika. 
+
+
+Konsola w Sieci 
+
+ipconfig - wyświetla konfiguracje ustawień IP. 
+
+ipconfig /all - Wyświetla pełne informacje o konfiguracji. 
+
+ipconfig /release - Zwalnia zajmowany poprawny adress IP z serverem DHCP. 
+
+ipconfig /renew - Nadaje nowy adress IP z serverem DHCP. 
+
+ipconfig /renew “nazwa_karty_sieciowej” - Nadaje adress IP z serverem DHCP dla konkretnej karty sieciowej. 
+
+Ipconfig /displaydns - Historia połączeń ze stronami www czy innych usług sieciowych która wykorzystuje DNS. (Client butter DNS). 
+
+Ipconfig /flushdns - czyszczy pamięć podręczną (cashe) z historii DNS. 
+
+ping adres_hosta (np.: www.wp.pl) - Ping służy do diagnozowania połączenia z innymi hostami. 
+
+ping adres_hosta -t   - Wysyła cały czas żądania echo, aż ręcznie tego nie przerwamy. Aby przerwać (CTRL+C), lub jeżeli chcemy zobaczyc w trakcie procesu statystyki (CTRL+BREAK). 
+
+tracert adres_hosta -Narzędzie do testowania trasy od maszego komputera do hosta docelowego. 
+
+tracert /? -Lista sposobów użycia. 
+
+pathping adres_hosta -Służy głównie do obliczania start pakietów przez poszczególne routery na trasie od hosta źródłowego do docelowego. (Słuzy do szukania wąskich gardeł w sieci, jaki router generuje najwieksze straty). 
+
+arp -Służy do mapowania adresów IP(logicznych) na fizyczne adresy(MAC). 
+
+arp –a  -Tablica wpisów ARP komputera. 
+
+arp –s  adres_ip adres_mac  -Ręczne dodawanie wpisów do tablicy ARP. 
+
+arp –d  -Usuwa wszystkie wpisy z komputera. 
+
+netstat (lub netstat –a)  – Pokazuje aktywne połaczenia. 
+
+netstat –e  -Wyświetla statystyki wysłanych i odebranych pakietów. 
+
+netstat –s -Wyświetla bardzo szczegółowe statystyki pakietów. 
+
+Netstat –r -Wyświetla tablice routingu naszego komputera. 
+
+Netsh 
+
+netsh –Narzędzie do konfiguracji połączenia sieciowego. (czyli jak dodać adres IP). 
+
+interface show inferface  -Pokazuje listę dostępnych połącznień sieciowych. 
+
+interface set interface name=”nazwa_karty_sieciowej” newname=”nowa_nazwa”  -Pozwala na zmianę nazwy  karty sieciowej. 
+
+interface ip set address name=”nazwa_karty_sieciowej” static  adres_ip   adres_maski   adres_bramy -Przypisanie konkretnej adres IP dla danej karty. 
+
+interface ip set dns name=”nazwa_karty_sieciowej” static  adres_ip   -Przypisanie adresa servera DNS. 
+
+interface ip show config name=”nazwa_karty_sieciowej”  -Pokazuje konfiguracje interfejsu. 
+
+interface ip set address name=”nazwa_karty_sieciowej” dhcp  -Zmiana konfiguracji tak aby komputer otrzymywał adress IP w sposób dynamiczny, czyli dzięki usłudze DHCP.(dotyczy maski i bramy). 
+
+Interface ip set dns name=”nazwa_karty_sieciowej” dhcp  -Zmiana konfiguracji tak aby komputer otrzymywał adress IP w sposób dynamiczny, czyli dzięki usłudze DHCP.(dotyczy adres servera DNS). 
